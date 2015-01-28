@@ -1,0 +1,329 @@
+@import "compass/css3";
+@import "compass/reset/utilities";
+@import "compass/typography/text/force-wrap";
+@import "github_badge.scss";
+
+@include reset-html5;
+
+$headerbg: lighten(desaturate(#3498DB, 50%), 35%);
+$headerInner: lighten(desaturate(#2980B9, 50%), 35%);
+$headerContrast: white;
+
+$headerComplement: complement($headerbg);
+$headerInnerComplement: complement($headerInner);
+
+$mainbg: #ECF0F1;
+$mainInner: white;
+
+// $footerbg: #2C3E50;
+// $footerInner: #34495E;
+$footerbg: darken($headerbg, 10);
+$footerInner: darken($headerInner, 10);
+
+main {
+  display: block;
+}
+
+#capdig-users {
+
+	figure {
+		display: inline-block;
+		text-align: center;
+	}
+
+	img {
+		width: 100px;
+		height: 100px;
+		@include border-radius(100px);
+		border: 1px solid #333;
+
+		padding: 5px;
+//		margin: 5px;
+	}
+
+}
+
+
+// @include reset-body;
+body {
+	background: $footerbg;
+	font-family: Arial;
+	font-size: 16px;
+	margin: 0;
+	padding: 0;
+	line-height: 1.5em;
+}
+
+a {
+	color: #0092B4;
+	text-decoration: none;
+	@include transition-property(all);
+	@include transition-duration(.2s);
+
+}
+
+li, ul {
+	padding: 0;
+}
+
+li {
+	margin: 0;
+	margin-left: 20px;
+}
+
+ul {
+	margin: 1em 0;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	font-weight: bold;
+	line-height: 1.7;
+	display: block;
+
+	margin: 0 -20px;
+	padding: 0 10px;
+
+	code {
+		font-weight: normal;
+		background: none;
+	}
+
+	&[id^=method] {
+		color:  $headerComplement;
+	}
+
+	&[id^=class] {
+		color: $headerInnerComplement;
+	}
+
+}
+
+h1, h2, h3, h4, h5, h6 {
+	padding-top: .9em;
+	padding-bottom: .3em;
+}
+
+h1 {
+	font-size: 2.5em;
+	border-bottom: 7px double $mainbg;
+}
+
+h2 {
+	font-size: 2em;
+	border-bottom: 5px double $mainbg;
+}
+
+h3 {
+	font-size: 1.5em;
+	border-bottom: 2px solid $mainbg;
+}
+
+h4 {
+	font-size: 1.2em;
+}
+
+h5 {
+	font-size: 1em;
+}
+
+hr {
+	background: transparent url("/images/slice.png") repeat-x 0 0;
+	border: 0 none;
+	color: #ccc;
+	height: 4px;
+	padding: 0;
+	margin: 15px 0;
+}
+
+a:hover { color: #D70036;}
+
+#logotitle {
+	position: absolute;
+	top: 0px;
+	left: 60px;
+	// font-size: 83px;
+	display: inline-block;
+	// text-decoration: none;
+
+	img {
+		width: 270px;
+	}
+
+}
+
+body {
+	& > header, & > main, & > footer {
+		main {
+			@include box-sizing(border-box);
+			// box-sizing: border-box;
+			width: 1000px;
+			margin: 0 auto;
+			position: relative;
+
+			@media screen and (max-width: 1000px) {
+				width: 100%;
+			}
+
+		}
+	}
+
+	& > header {
+
+		background: $headerbg;
+		line-height: 0;
+		
+		color: $headerContrast;
+
+		border-bottom: 17px solid $headerComplement;
+
+
+		main {
+			height: 125px;
+			background: $headerInner;
+			border-bottom: 17px solid $headerInnerComplement;
+			margin-bottom: -17px;
+			// background: #2980B9;
+			@media screen and (max-width: 1000px) {
+				height: 90px;
+			}
+			
+		}
+
+		nav {
+			position: absolute;
+			top: 20px;
+			right: 20px;
+
+			// float: right;
+			a {
+				display: inline-block;
+				color: $headerInner;
+				background: $headerContrast;
+				font-weight: bold;
+				text-decoration: none;
+				font-size: 20px;
+				padding: 20px;
+				margin: 4px;
+
+				@include border-radius(8px);
+
+				@include transition-property(all);
+				@include transition-duration(.3s);
+
+				border: 1px solid $headerContrast;
+
+				&:hover {
+					background: $headerInner;
+					color: $headerContrast;
+					// border: 1px solid $headerContrast;
+				}
+
+				@media screen and (max-width: 1000px) {
+					padding: 20px 15px;
+				}
+
+				@media screen and (max-width: 700px) {
+					font-size: 15px;
+					padding: 10px;
+					margin: 0 2px;
+					@include border-radius(0 0 4px 4px);
+				}
+
+			}
+
+			@media screen and (max-width: 640px) {
+				top: 0;
+			}
+		}
+	}
+
+	& > main {
+		background: $mainbg;
+
+		main {
+			min-height: 100%;
+			padding: 10px 40px;
+			background: $mainInner;
+		}
+	}
+
+	& > footer {
+
+		margin-bottom: 40px;
+
+		background: $footerbg;
+		font-size: .9em;
+
+		main {
+			text-align: center;
+
+			color: white;
+			padding: 10px 20px;
+			background: $footerInner;
+		}
+
+		a {
+			color: #CCF;
+		}
+
+	}
+}
+
+
+pre, code {
+	background: bottom repeat-x rgba(223, 221, 221, .3); //#DFDDDD;
+	font-family: Consolas,"Courier New",Courier,monospace;
+	@include border-radius(3px);
+}
+
+pre {
+	display: block;
+	@include force-wrap();
+	font-size: .9em;
+	padding: 22px;
+	line-height: 1.4em;
+	// @include box-shadow(0 0 6px rgba(0, 0, 0, 0.5));
+	border-radius: 4px;
+
+	code { 
+		margin: 0;
+  		padding: 0;
+		white-space: pre;
+		background: transparent; 
+		// @include box-shadow(0 0 0 transparent);
+		display: block;
+		overflow: auto;
+	}
+}
+
+#content_struct {
+	@include border-radius(8px);
+	background: mix($mainbg, $mainInner);
+	font-size: 12px;
+	line-height: 1.4em;
+	float: right;
+
+	margin-right: -30px;
+
+	padding: 20px;
+	padding-left: 0;
+	ul, li {
+		list-style-type: lower-greek;
+		padding: 0;
+		margin-top: 0;
+		margin-bottom: 0;
+	}
+	ul {
+		padding-left: 20px;
+		padding-top: 0;
+	}
+
+}
+
+@include github_badge( $headerInner );
+
+@media screen and (max-width: 1100px) {
+	.github_badge {
+		display: none;
+	}
+}

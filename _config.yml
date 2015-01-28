@@ -1,0 +1,10 @@
+exclude: ["sass", ".sass-cache", "config.rb", "docsrc"]
+permalink: /blog/:year/:month/:day/:title.html
+
+markdown: redcarpet
+redcarpet:
+  extensions: ['with_toc_data']
+
+# pygments: true
+# include: ['api','js']
+host: '::'
