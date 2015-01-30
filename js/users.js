@@ -15,8 +15,16 @@ window.addEvent("domready", function() {
 						img = new Element('img.user-img').set("src", memberItem.avatar_url);
 						fig.grab(img);
 
-						cap = new Element('figcaption').set('text', response.data.name.split(" ")[0]);
+						var name;
+						if( typeof response.data.name != "undefined" ) {
+							name = response.data.name
+						} else {
+							name = "-";
+						}
+
+						cap = new Element('figcaption').set('text', name.split(" ")[0]);
 						fig.grab(cap);
+
 
 						users.grab(fig);
 					}
