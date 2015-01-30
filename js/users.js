@@ -25,7 +25,6 @@ window.addEvent("domready", function() {
 						cap = new Element('figcaption').set('text', name.split(" ")[0]);
 						fig.grab(cap);
 
-
 						users.grab(fig);
 					}
 				}).send();
