@@ -1,18 +1,49 @@
 window.addEvent("domready", function() {
+	var bios = {
+		"donatj"         : { 
+			"title" : "Programmer",
+			"desc"  : "Keyboard collector"
+		},
+		"henderjon"   : { 
+			"title" : "Lead Programmer",
+			"desc"  : "Half beard, all man"
+		},
+		"oranj"       : { 
+			"title" : "Programmer",
+			"desc"  : "Fire giant"
+		},
+		"phanzink"    : { 
+			"title" : "Programmer",
+			"desc"  : "Headphone enthusiast, dog lover"
+		},
+		"AirNomadSmitty" : { 
+			"title" : "Programmer",
+			"desc"  : "French fry connoisseur"
+		},
+		"leqphi"         : { 
+			"title" : "Designer / Programmer",
+			"desc"  : "The quiet type"
+		},
+		"iphelps"        : {
+			"title" : "Programmer",
+			"desc"  : "Tab soda enthusiast"
+		}
+	};
+
+	var usersDiv = $('capdig-users');
+
 	new Request.JSONP({
 		url       : 'https://api.github.com/orgs/capdig/members',
 		data      : {access_token: 'f2e198c12d48167708219ccd6e42f50a1ac79ddd'},
 		onComplete: function( response ) {
-			users = $('capdig-users');
-
 			Object.each(response.data, function( memberItem ) {
 				new Request.JSONP({
 					url       : memberItem.url,
 					data      : {access_token: 'f2e198c12d48167708219ccd6e42f50a1ac79ddd'},
 					onComplete: function( response ) {
-						fig = new Element('figure');
+						var fig = new Element('figure');
 
-						img = new Element('img.user-img').set("src", memberItem.avatar_url);
+						var img = new Element('img.user-img').set("src", memberItem.avatar_url);
 						fig.grab(img);
 
 						var name;
@@ -22,10 +53,18 @@ window.addEvent("domready", function() {
 							name = "-";
 						}
 
-						cap = new Element('figcaption').set('text', name.split(" ")[0]);
+						var cap = new Element('figcaption').set('text', name.split(" ")[0]);
 						fig.grab(cap);
 
-						users.grab(fig);
+						var b = "&nbsp;";
+						if( typeof bios[memberItem.login] != "undefined" ) {
+							b = "<strong>" + bios[memberItem.login].title + "</strong><br />" + bios[memberItem.login].desc;
+						}
+
+						var bio = new Element('p').set('html', b);
+						fig.grab(bio);
+						
+						usersDiv.grab(fig);
 					}
 				}).send();
 			});
