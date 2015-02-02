@@ -2,6 +2,10 @@
 layout: default
 ---
 
+<script src="js/users.js"></script>
+
 # Capstone Digital!
 
-Hello World
+## The Team
+
+<div id="capdig-users"><div>
