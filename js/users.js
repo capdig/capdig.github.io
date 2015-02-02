@@ -14,7 +14,7 @@ window.addEvent("domready", function() {
 		},
 		"phanzink"    : { 
 			"title" : "Programmer",
-			"desc"  : "Headphone enthusiast, dog lover"
+			"desc"  : "Headphone aficionado"
 		},
 		"AirNomadSmitty" : { 
 			"title" : "Programmer",
