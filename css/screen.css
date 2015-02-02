@@ -6,9 +6,13 @@ main {
   display: block;
 }
 
+#capdig-users {
+  text-align: center;
+}
 #capdig-users figure {
   display: inline-block;
-  text-align: center;
+  margin: 10px;
+  padding: 0;
 }
 #capdig-users img {
   width: 100px;
@@ -16,8 +20,18 @@ main {
   -moz-border-radius: 100px;
   -webkit-border-radius: 100px;
   border-radius: 100px;
-  border: 1px solid #333;
+  border: 4px solid #d1c9c3;
   padding: 5px;
+  -moz-transition-duration: 0.2s;
+  -o-transition-duration: 0.2s;
+  -webkit-transition-duration: 0.2s;
+  transition-duration: 0.2s;
+}
+#capdig-users img:hover {
+  border-color: #c3ccd1;
+}
+#capdig-users img:active {
+  background: #d1c9c3;
 }
 
 body {
