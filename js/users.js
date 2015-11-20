@@ -28,6 +28,10 @@ window.addEvent("domready", function() {
 			"title" : "Programmer",
 			"desc"  : "Tab soda enthusiast"
 		}
+		"stephenmoore56" : {
+			"title" : "Database Admin",
+			"desc"  : "Bird fanatic"
+		}
 	};
 
 	var usersDiv = $('capdig-users');
