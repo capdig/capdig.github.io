@@ -27,7 +27,7 @@ window.addEvent("domready", function() {
 		"iphelps"        : {
 			"title" : "Programmer",
 			"desc"  : "Tab soda enthusiast"
-		}
+		},
 		"stephenmoore56" : {
 			"title" : "Database Admin",
 			"desc"  : "Bird fanatic"
