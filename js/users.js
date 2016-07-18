@@ -31,6 +31,14 @@ window.addEvent("domready", function() {
 		"stephenmoore56" : {
 			"title" : "Database Admin",
 			"desc"  : "Bird fanatic"
+		},
+		"5nahalf"        : {
+			"title" : "Programmer",
+			"desc"  : "Extreme hoarder"
+		},
+		"samantha212": {
+			"title" : "Programmer",
+			"desc"  : "Maybe not Susan?"
 		}
 	};
 
