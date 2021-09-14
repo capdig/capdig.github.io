@@ -51,38 +51,39 @@ document.addEventListener('DOMContentLoaded', () => {
 		.then(response => response.json())
 		.then(( data ) => {
 			for( const memberItem of data ) {
-				console.log(memberItem);
-
 				fetch(memberItem.url, {
 					"method" : "GET",
 					"headers": {}
 				})
 					.then(response => response.json())
 					.then(( response ) => {
-						var fig = new Element('figure');
+						const fig = document.createElement('figure');
 
-						var img = new Element('img.user-img').set("src", memberItem.avatar_url);
-						fig.grab(img);
+						// const img = new Element('img.user-img').set("src", memberItem.avatar_url);
+						const img = document.createElement('img');
+						img.src = memberItem.avatar_url;
+						img.classList.add('user-img');
+						fig.appendChild(img);
 
-						var name;
+						let name = "-";
 						if( typeof response.name != "undefined" ) {
 							name = response.name
-						} else {
-							name = "-";
 						}
 
-						var cap = new Element('figcaption').set('text', name.split(" ")[0]);
-						fig.grab(cap);
+						const cap = document.createElement('figcaption');
+						cap.innerText = name.split(" ")[0];
+						fig.appendChild(cap);
 
-						var b = "&nbsp;";
+						let b = "&nbsp;";
 						if( typeof bios[memberItem.login] != "undefined" ) {
 							b = "<strong>" + bios[memberItem.login].title + "</strong><br />" + bios[memberItem.login].desc;
 						}
 
-						var bio = new Element('p').set('html', b);
-						fig.grab(bio);
+						const bio = document.createElement('p');
+						bio.innerHTML = b;
+						fig.appendChild(bio);
 
-						usersDiv.grab(fig);
+						usersDiv.appendChild(fig);
 					})
 					.catch(console.error.bind(console));
 			}
